@@ -1,6 +1,6 @@
 Stripe Anywhere RESTFUL API
 
-Place this code in a publically accessible folder in a PHP application.
+Place this code in a publicly accessible folder in a PHP application.
 
 Send as paramaters in RESTful manner as GET or POST 
 (yourUrl.com/cloud/index.php?number=xxx&expMonth=xxx: )
