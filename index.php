@@ -115,16 +115,20 @@ $charge = Stripe_Charge::create(array(
   "card" => $token,
   "description" => $description)
 );
+  $response = array("status"=>"success", "resp"=>"Payment processed");
+    
+    $jResponse = json_encode($response);
+    echo($jResponse);
 
 
-	//$email = $_REQUEST['email'];
-	include_once('acceptAPI.php');
 //header( 'Location: http://thecoded.com/appfactory/register/accepted.html' ) ;
 } catch(Stripe_CardError $e) {
   // The card has been declined
-	$email = $_REQUEST['email'];
-	include_once('declineAPI.php');
-	//header( 'Location: http://thecoded.com/appfactory/register/declined.html' ) ;
+$response = array("status"=>"fail", "resp"=>"Payment wasn't processed ");
+
+    $jResponse = json_encode($response);
+    echo($jResponse);
+  //header( 'Location: http://thecoded.com/appfactory/register/declined.html' ) ;
 }
 
 
