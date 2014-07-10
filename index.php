@@ -53,8 +53,8 @@ require(dirname(__FILE__) . '/Stripe/Recipient.php');
 
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here https://manage.stripe.com/account
-Stripe::setApiKey("sk_live_4NEAp2LeZdNDWRr9fzP0khXO");
 
+Stripe::setApiKey("sk_test_4NEAk2oni5HBPatN9IsgmEin");
 
 // Get the credit card details submitted by the form
 //$token = $_POST['stripeToken'];
