@@ -1,0 +1,73 @@
+<html>
+  <head>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+    var subArr={};
+
+      function supa(){
+
+        $('form input').each(function(){
+
+          thisId =$(this).attr('id');
+          thisVal =$(this).val();
+
+          subArr[thisId]= thisVal;
+        })
+      
+        $.ajax({
+          'url':'index.php',
+          'data':subArr,
+          'complete':function(transport){
+            resp =$.parseJSON(transport.responseText);
+            if(resp['status'])=="fail"){
+              alert("payment failed");
+            }
+            else if(resp['status']== "success"){
+              alert("payment succeeded");
+            }
+            else{
+              alert("something went wrong.")
+            }
+          }
+
+        })
+        }
+
+
+    </script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  </head>
+
+
+
+  <body>
+
+    <form action="javascript:supa()" class="input-group">
+
+      <input type="text" id="number" placeholder="credit card number"></input>
+      <input type="text" id="expMonth" placeholder="expiration month (as number)"></input>
+      <input type="text" id="expYear" placeholder="expiration year (as number)"></input>
+      <input type="text" id="cvc" placeholder="CCV"></input>
+      <input type="text" id="amount" placeholder="amount"></input>
+      <input type="submit" value="process payment">
+      
+
+    </form>
+
+    <button class="primary">easy!</button>
+
+  </body>
+
+</html>
+
+
